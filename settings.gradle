@@ -1,0 +1,5 @@
+rootProject.name = 'feign-extension-spring-boot-starter'
+include 'feign-page-support-spring-boot-starter'
+include 'feign-extension-spring-boot-starter-client-samples'
+include 'feign-extension-spring-boot-starter-server-samples'
+

@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.github.rbaul.spring.boot.sample.client.feign.extension.config.FeignClientAutoConfiguration

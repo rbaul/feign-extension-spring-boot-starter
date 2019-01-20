@@ -1,0 +1,33 @@
+feign:
+#  hystrix.enabled: false #default true
+  client:
+    config:
+      feign-example-client: #feign-example-client
+        loggerLevel: full
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic # default none
+
+#sample.client.api.path: "http://localhost:8081"
+#sample.client.api.name.default: "feign-example-client"
+
+logging:
+  level:
+    com.example.feign.client.feignClient: debug
+
+#  If you need to use ThreadLocal bound variables in your RequestInterceptor`s you will need to either
+#  set the thread isolation strategy for Hystrix to `SEMAPHORE or disable Hystrix in Feign.
+
+# To disable Hystrix in Feign
+#feign:
+#  hystrix:
+#    enabled: false
+
+# To set thread isolation to SEMAPHORE
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE

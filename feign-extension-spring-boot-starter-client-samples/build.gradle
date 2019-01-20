@@ -1,0 +1,48 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+repositories {
+    mavenCentral()
+}
+
+bootRepackage {
+    enabled = false
+}
+
+dependencies {
+    compile('com.fasterxml.jackson.core:jackson-annotations')
+    compile('org.springframework.boot:spring-boot-starter')
+    compile('org.springframework.data:spring-data-commons')
+//    compile('org.springframework:spring-web')
+    compile('org.springframework.boot:spring-boot-starter-validation')
+
+    compileOnly('io.springfox:springfox-swagger2:2.7.0')
+    compileOnly('org.springframework.boot:spring-boot-configuration-processor')
+
+    compileOnly('org.springframework.boot:spring-boot-starter-tomcat')
+    compileOnly('org.springframework.cloud:spring-cloud-starter-openfeign')
+//    compileOnly('org.springframework.cloud:spring-cloud-starter-netflix-hystrix')
+
+
+    implementation project(':feign-page-support-spring-boot-starter')
+
+    testCompile('com.fasterxml.jackson.core:jackson-databind')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
