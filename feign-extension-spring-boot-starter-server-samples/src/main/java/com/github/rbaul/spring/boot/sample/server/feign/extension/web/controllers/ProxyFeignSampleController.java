@@ -1,8 +1,8 @@
 package com.github.rbaul.spring.boot.sample.server.feign.extension.web.controllers;
 
-import com.github.rbaul.spring.boot.sample.client.feign.extension.clients.FeignSampleClientApi;
-import com.github.rbaul.spring.boot.sample.client.feign.extension.clients.FeignSampleClientApiWithFallback;
-import com.github.rbaul.spring.boot.sample.client.feign.extension.clients.FeignSampleClientApiWithFallbackFactory;
+import com.github.rbaul.spring.boot.sample.client.feign.extension.clients.api1.FeignSampleClientApi;
+import com.github.rbaul.spring.boot.sample.client.feign.extension.clients.api2.FeignSampleClientApiWithFallback;
+import com.github.rbaul.spring.boot.sample.client.feign.extension.clients.api3.FeignSampleClientApiWithFallbackFactory;
 import com.github.rbaul.spring.boot.sample.client.feign.extension.dtos.SampleDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

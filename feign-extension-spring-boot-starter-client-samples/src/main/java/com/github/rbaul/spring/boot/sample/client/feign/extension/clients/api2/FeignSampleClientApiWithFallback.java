@@ -1,5 +1,6 @@
-package com.github.rbaul.spring.boot.sample.client.feign.extension.clients;
+package com.github.rbaul.spring.boot.sample.client.feign.extension.clients.api2;
 
+import com.github.rbaul.spring.boot.sample.client.feign.extension.clients.api2.config.FeignSampleClientApiWithFallbackConfig;
 import com.github.rbaul.spring.boot.sample.client.feign.extension.dtos.SampleDto;
 import feign.codec.ErrorDecoder;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
         url = "http://localhost:8080",
         fallback = FeignSampleClientApiWithFallback.FeignSampleClientApiFallback.class,
 //        fallbackFactory = FeignSampleClientApiFallbackFactory.class
-        configuration = FeignSampleClientApiWithFallback.FeignSampleClientApiWithFallbackConfig.class
+        configuration = FeignSampleClientApiWithFallbackConfig.class
 )
 public interface FeignSampleClientApiWithFallback {
     @PostMapping("info")
@@ -46,17 +47,4 @@ public interface FeignSampleClientApiWithFallback {
         }
     }
 
-    @Configuration
-    static class FeignSampleClientApiWithFallbackConfig {
-
-        @Bean
-        public ErrorDecoder errorDecoder(){
-            return new ErrorDecoder.Default();
-        }
-
-//        @Bean
-//        public Encoder encoder(){
-//            return new Encoder.Default();
-//        }
-    }
 }
